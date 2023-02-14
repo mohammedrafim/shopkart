@@ -1,0 +1,35 @@
+{%extends 'shop/sample.html'%}
+{% block title%}
+Online|shopping
+{%endblock title%}
+{% block content%}
+
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <h4 class="mb-3">{{catagory.name}} products</h4>
+            <hr style= "border-color:#b8bfc2">
+        </div>
+    </div>
+
+    {% for d in products %}
+    <div class="col-md-4 col-lg-3">
+    <div class="card my-3">
+     <img src="{{d.product_image.url}}" style="height:35vh" class="card-img-top" alt="catagories">
+     <a href="{% url 'productview' catagory.name d.name%}" style="text-decoration:none;">
+     <div class="card-body">
+       <h5 class="card-title text-primary">{{d.name}}</h5>
+       <p class="card-text">
+        <span class="float-start old_price"><s>Rs.{{d.original_price | stringformat:"d"}}</s></span>
+        <span class="float-end new_price">Rs.{{d.selling_price | stringformat:"d"}}</span>
+       </p>
+     </div>
+     </a>
+   </div>
+ </div>
+{% endfor %}
+</div>
+</section>
+
+{% endblock content%}

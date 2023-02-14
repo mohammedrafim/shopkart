@@ -1,0 +1,58 @@
+{%extends 'shop/sample.html'%}
+{% block title%}
+register page
+{%endblock title%}
+{% block content%}
+<div class="container" style="margin-top:70px; min-height:600px">
+    <div class="row">
+    <div class="col-12">
+   <h4 class="mb-3"><strong>Register page</strong></h4>
+   <hr style="border-border-color:b8bfc2">
+   {% include 'shop/messages.html'  %}
+    </div>
+    </div>
+    <section class="py-4 my-3">
+      <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="" class="form-label"><b>User Name</b></label>
+                        {{form.username}}
+                        {% if form.errors.username %}
+                        <label class="text-danger">{{ form.errors.username }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-4">
+                        <label for="" class="form-label"><b>Email</b></label>
+                        {{form.email}}
+                         {% if form.errors.email %}
+                        <label class="text-danger">{{ form.errors.email }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-4">
+                        <label for="" class="form-label"><b>Password</b></label>
+                        {{form.password1}}
+                         {% if form.errors.password1 %}
+                        <label class="text-danger">{{ form.errors.password1 }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-4">
+                        <label for="" class="form-label"><b>Confirm Password</b></label>
+                        {{form.password2}}
+                         {% if form.errors.password2 %}
+                        <label class="text-danger">{{ form.errors.password2 }}</label>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+               </form>
+               <p class="my-2">Already User ? <a href="{% url 'login' %}" style="text-decoration:none;">Login now</a></p>
+            </div>
+        </div>
+      </div>
+
+    </section>
+</div>
+
+{% endblock content%}

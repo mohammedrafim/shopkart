@@ -1,0 +1,38 @@
+{%extends 'shop/sample.html'%}
+{% block title%}
+register page
+{%endblock title%}
+{% block content%}
+<div class="container" style="margin-top:70px; min-height:600px">
+    <div class="row">
+    <div class="col-12">
+   <h4 class="mb-3"><strong>User Login</strong></h4>
+   <hr style="border-border-color:b8bfc2">
+   {% include 'shop/messages.html'  %}
+    </div>
+    </div>
+    <section class="py-4 my-3">
+      <div class="container">
+        <div class="row">
+            <div class="col-6">
+               <form method="POST" action="">
+                {% csrf_token %}
+                <div class="mb-4">
+                  <label for="" class="form-label">User name</label>
+                  <input type="text" name="username" id="username" class="form-control" placeholder="enter user name">
+                  <div>
+                    <div class="mb-4">
+                      <label for="" class="form-label">Password</label>
+                      <input type="Password" name="password" id="password" class="form-control" placeholder="enter user name">
+                    <div>
+                      <button type="submit" class="btn btn-primary mt-3">Login</button>
+               </form>
+              
+            </div>
+        </div>
+      </div>
+
+    </section>
+</div>
+
+{% endblock content%}
